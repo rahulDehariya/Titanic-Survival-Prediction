@@ -8,7 +8,7 @@
 from typing import Any
 import pandas as pd
 
-def extractTitle(df:pd.DataFrame) -> pd.DataFrame :
+def extract_title(df:pd.DataFrame) -> pd.DataFrame :
     """
     Extract passenger title from Name column.
     """
@@ -17,7 +17,7 @@ def extractTitle(df:pd.DataFrame) -> pd.DataFrame :
 
     return df
 
-def createFamilySize(df:pd.DataFrame) -> pd.DataFrame :
+def _create_family_size(df:pd.DataFrame) -> pd.DataFrame :
     """
     Create FamilySize feature.
     """
@@ -27,7 +27,7 @@ def createFamilySize(df:pd.DataFrame) -> pd.DataFrame :
 
     return df
 
-def dropUnusedColumn(df, column) :
+def _drop_unused_columns(df, column) :
     """
     Drop columns that are no longer needed.
     """
@@ -38,8 +38,8 @@ def engineeringFeature(df:pd.DataFrame) -> pd.DataFrame :
     """
     Execute complete feature engineering pipeline.
     """
-    extractTitle(df)
-    createFamilySize(df)
-    dropUnusedColumn(df)
+    extract_title(df)
+    _create_family_size(df)
+    _drop_unused_columns(df)
     return df
 

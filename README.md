@@ -63,3 +63,5 @@ Evaluate
       ↓
 Save Model
 This file coordinates the entire workflow.
+
+We follow PEP 8 for the entire project.
