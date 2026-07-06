@@ -38,7 +38,7 @@ CATEGORICAL_FEATURES = [
 # Why StandardScaler?
 # Because we want a preprocessing pipeline that works well across multiple models. Even though tree-based models don't require scaling, models like Logistic Regression, SVM, and KNN benefit from it.
 
-def buildPreprocessing() -> ColumnTransformer:
+def build_preprocessing() -> ColumnTransformer:
     """
     Build and return the preprocessing pipeline.
     """

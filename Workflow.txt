@@ -1,0 +1,27 @@
+Workflow:
+
+Load Dataset
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+Split Train/Test
+      │
+      ▼
+Build Preprocessor
+      │
+      ▼
+Build Model
+      │
+      ▼
+Create Pipeline
+      │
+      ▼
+Train
+      │
+      ▼
+Predict
+      │
+      ▼
+Evaluate

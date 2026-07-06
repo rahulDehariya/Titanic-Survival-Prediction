@@ -34,7 +34,7 @@ def _drop_unused_columns(df, column) :
     return df.drop(column=column)
 
 
-def engineeringFeature(df:pd.DataFrame) -> pd.DataFrame :
+def engineering_feature(df:pd.DataFrame) -> pd.DataFrame :
     """
     Execute complete feature engineering pipeline.
     """
