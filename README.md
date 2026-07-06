@@ -1,38 +1,65 @@
-A DataFrame is simply a table stored in memory.
+notebooks/Titanic_Project.ipynb
 
-Titanic_EDA.ipynb :
-Only for:
--EDA
--visualization
--experiments
--trying ideas.
- A research notebook.
+Is for for:
+- Understanding data
+- Visualization
+- Trying ideas
 
- preprocessing.py
-  - Contains functions
+src/data_loader.py
+Responsible for:
+- Reading CSV files
+- Returning DataFrames
+Nothing else.
 
-feature_engineering.py
- - 
+src/preprocessing.py
+Responsible for:
+- Missing values
+- Encoding
+- Scaling
+- Train/Test preprocessing
+No model training.
 
-Data preprocessing - Convert raw data into machine learning-ready data-
-Raw Data
-    ↓
-Clean Data
-    ↓
+src/feature_engineering.py
+Responsible for:
+- Extract Title
+- Create FamilySize
+- Future engineered features
+
+src/model.py
+
+Responsible for:
+- Creating models
+- Training
+- Saving models
+
+src/evaluate.py
+Responsible for:
+- Accuracy
+- Precision
+- Recall
+- F1
+- ROC-AUC
+- Confusion Matrix
+
+src/predict.py
+Responsible for:
+- Loading saved model
+- Predicting new passengers
+
+
+train.py
+This becomes the orchestrator.
+Load Data
+      ↓
 Feature Engineering
-    ↓
-Encoded Data
-    ↓
-ML Model
-
-The Correct Order
-
-This is the workflow to follow in ML project.
-
-1. Remove unnecessary columns
-2. Handle missing values
-3. Feature Engineering
-4. Encode categorical variables
-5. Feature Scaling (if needed)
-6. Train-Test Split (or split earlier depending on pipeline)
-7. Model Training
+      ↓
+Preprocessing
+      ↓
+Split Data
+      ↓
+Train Model
+      ↓
+Evaluate
+      ↓
+Save Model
+This file coordinates the entire workflow.

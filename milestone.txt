@@ -1,0 +1,13 @@
+Milestone 1
+- Folder structure
+- Data loader
+
+Milestone 2
+- Feature Engineering
+add title extraction and family size features
+
+Milestone 3
+- Preprocessing
+implement preprocessing pipeline
+
+
