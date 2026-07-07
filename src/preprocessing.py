@@ -57,14 +57,16 @@ def build_preprocessing() -> ColumnTransformer:
 
     # Categorical features Missing Values -> Most Frequent Value -> One Hot Encoding
 
-    catergorical_pipeline = Pipeline(
+    categorical_pipeline = Pipeline(
         steps=[
             (
                 "imputer",
-                SimpleImputer(strategy="most-frequent")
+                SimpleImputer(strategy="most_frequent")
             ),
-            "scaler",
-            OneHotEncoder(handle_unknown="ignore")
+            (
+                "scaler",
+                OneHotEncoder(handle_unknown="ignore")
+            )
         ]
     )
 
@@ -84,7 +86,7 @@ def build_preprocessing() -> ColumnTransformer:
             ),
             (
                 "categorical",
-                catergorical_pipeline,
+                categorical_pipeline,
                 CATEGORICAL_FEATURES
             )
         ]

@@ -5,6 +5,7 @@
 # - Robust on tabular datasets
 
 from sklearn.ensemble import RandomForestClassifier
+from src.config import RANDOM_STATE
 
 
 def build_model() -> RandomForestClassifier:

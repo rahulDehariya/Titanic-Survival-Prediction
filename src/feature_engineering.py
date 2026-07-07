@@ -8,6 +8,9 @@
 from typing import Any
 import pandas as pd
 
+from src.config import RAW_COLUMNS_TO_REMOVE
+
+
 def extract_title(df:pd.DataFrame) -> pd.DataFrame :
     """
     Extract passenger title from Name column.
@@ -27,19 +30,19 @@ def _create_family_size(df:pd.DataFrame) -> pd.DataFrame :
 
     return df
 
-def _drop_unused_columns(df, column) :
-    """
-    Drop columns that are no longer needed.
-    """
-    return df.drop(column=column)
+def _drop_unused_columns(
+    df: pd.DataFrame,
+    columns: list[str],
+) -> pd.DataFrame:
+    return df.drop(columns=columns)
 
 
-def engineering_feature(df:pd.DataFrame) -> pd.DataFrame :
+def engineer_features(df:pd.DataFrame) -> pd.DataFrame :
     """
     Execute complete feature engineering pipeline.
     """
-    extract_title(df)
-    _create_family_size(df)
-    _drop_unused_columns(df)
+    df = extract_title(df)
+    df = _create_family_size(df)
+    df = _drop_unused_columns(df, RAW_COLUMNS_TO_REMOVE)
     return df
 
