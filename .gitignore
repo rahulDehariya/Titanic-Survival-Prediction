@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Pytest
+.pytest_cache/
+
+# Model Artifacts
+models/*.pkl
+
+# Output Files
+outputs/*.csv
+outputs/*.png
+outputs/*.jpg
+
+# Logs
+*.log
+
+# Environment Variables
+.env

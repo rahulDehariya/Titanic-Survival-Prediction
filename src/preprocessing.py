@@ -15,22 +15,11 @@
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder , StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-NUMERICAL_FEATURES = [
-    "Age",
-    "Fare",
-    "SibSp",
-    "Parch",
-    "FamilySize"
-]
+NUMERICAL_FEATURES = ["Age", "Fare", "SibSp", "Parch", "FamilySize"]
 
-CATEGORICAL_FEATURES = [
-    "Sex",
-    "Embarked",
-    "Title",
-    "Pclass"
-]
+CATEGORICAL_FEATURES = ["Sex", "Embarked", "Title", "Pclass"]
 
 # A pipeline is simply a sequence of transformations.
 # Age ->SimpleImputer -> StandardScaler -> Output Each step receives the output of the previous step.
@@ -38,20 +27,15 @@ CATEGORICAL_FEATURES = [
 # Why StandardScaler?
 # Because we want a preprocessing pipeline that works well across multiple models. Even though tree-based models don't require scaling, models like Logistic Regression, SVM, and KNN benefit from it.
 
+
 def build_preprocessing() -> ColumnTransformer:
     """
     Build and return the preprocessing pipeline.
     """
     numeric_pipeline = Pipeline(
         steps=[
-            (
-                "imputer",
-                SimpleImputer(strategy="median")
-            ),
-            (
-                "scaler",
-                StandardScaler()
-            ),
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
         ]
     )
 
@@ -59,14 +43,8 @@ def build_preprocessing() -> ColumnTransformer:
 
     categorical_pipeline = Pipeline(
         steps=[
-            (
-                "imputer",
-                SimpleImputer(strategy="most_frequent")
-            ),
-            (
-                "scaler",
-                OneHotEncoder(handle_unknown="ignore")
-            )
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("scaler", OneHotEncoder(handle_unknown="ignore")),
         ]
     )
 
@@ -76,19 +54,10 @@ def build_preprocessing() -> ColumnTransformer:
 
     # What ColumnTransformer - Apply different preprocessing pipelines to different columns.
 
-
     column_transformer = ColumnTransformer(
         transformers=[
-            (
-                "numerical",
-                numeric_pipeline,
-                NUMERICAL_FEATURES
-            ),
-            (
-                "categorical",
-                categorical_pipeline,
-                CATEGORICAL_FEATURES
-            )
+            ("numerical", numeric_pipeline, NUMERICAL_FEATURES),
+            ("categorical", categorical_pipeline, CATEGORICAL_FEATURES),
         ]
     )
     return column_transformer
